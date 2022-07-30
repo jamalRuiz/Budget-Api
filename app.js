@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const budgetController = require("./controller/budgetController.js")
-
-app.use("/budget", express.json(), budgetController);
+const cors = require("cors");
+app.use(cors())
+app.use("/transactions", express.json(), budgetController);
 
 
 app.get("/", (req,res)=> {
